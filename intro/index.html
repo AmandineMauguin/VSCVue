@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{title}}</h1>
+      <!--On récupère la donnée directement dans l'objet data du main.js-->
+      <p>{{introduction}}</p>
+      <h2 v-if="christmas">{{subTitle}}</h2>
+      <!-- Ajout d'une condition if pour afficher le sous titre ou non-->
+      <h2 v-else-if="summer === 3">Ui bjr c cho</h2>
+      <h2 v-else-if="spring === 1">Ui bjr c moins cho</h2>
+      <img :src="image" />
+      <!-- Pour bind l'image, soit v-bind soit juste :src-->
+      <h3 v-show="sale">Vendre des trucs</h3>  <!--Le v-show joue sur la propriété css display -->
+      <ul>
+        <li v-for="(item, index) in products">{{index}} {{item}}</li>
+        <!-- Ici la boucle se fait toute seule et il auto génère les li tant qu'il y a des items dans mon tableau. On affiche ensuite l'index et l'item. L'attribut key peut permettre d'avoir un attribut unique (à revoir si besoin)-->
+      </ul>
+      <p>
+        <button v-on:click="count++; alert(count)">
+          Clique, clique. {{count}}
+        </button>
+      </p>
+      <input type="text" v-model="property" class="w3-border-top w3-border-bottom"/>
+      <p v-if="property === 'code123' ">  <!-- Quand on met le code dans l'input, il affiche directement le p c'est merveilleux. Permet une liaison bi-directionnelle de la page html au code js et vis versa  -->
+        Le code promo : ui
+      </p>
+      <footer>{{footerMessage}}</footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

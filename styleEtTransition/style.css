@@ -1,0 +1,27 @@
+.red {
+    color:red;
+}
+
+/* Ici on crée une transition avec l'identifiant que l'on veut (ici bounce-in) */
+/*Ensuite on fait par tranche d'animation */
+/* Le terme bounce prend des suffixes, mais c'est bien le bounce l'identifiant de mon animation*/
+@keyframes bounce-in {
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+
+}
+
+.bounce-leave-active{
+    animation: bounce-in 0.5s reverse;
+}
+
+.bounce-enter-active{
+    animation: bounce-in 0.5s;
+}
